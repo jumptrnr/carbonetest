@@ -4,3 +4,12 @@ You must also install LibreOffice. You can download it from [here](https://www.l
 
 In order to run the app, you need to have a local server running. You can use the following command:
 
+```
+yarn install
+```
+
+Then start with: 
+
+```
+nodemon start
+```
