@@ -9,8 +9,12 @@ const path = require("path");
 router.get("/", function (req, res, next) {
   //read the data from the JSON file
   var data = JSON.parse(fs.readFileSync("./test/data.json", "utf8"));
-  //read the document template
+
+  //read the document template t7tran library only working with odt for now
   var template = "./test/test.odt";
+
+  //doesn't work with docx
+  //var template = "./test/test.docx";
 
   var options = {
     lang: "en-us", // String, output lang of the report
