@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
   //read the data from the JSON file
   var data = JSON.parse(fs.readFileSync("./test/data.json", "utf8"));
   //read the document template
-  var template = "./test/test_file.docx";
+  var template = "./test/test.odt";
 
   var options = {
     lang: "en-us", // String, output lang of the report

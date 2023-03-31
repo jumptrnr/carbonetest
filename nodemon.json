@@ -1,3 +1,4 @@
 {
-  "ignore": ["./test/output*"]
+  "ignore": ["./test/output*"],
+  "watch": ["./src/**/*", "./node_modules/carbone/lib/**/*"]
 }
