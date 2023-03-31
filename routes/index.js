@@ -3,13 +3,14 @@ var router = express.Router();
 
 const carbone = require("carbone");
 const fs = require("fs");
+const path = require("path");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   //read the data from the JSON file
   var data = JSON.parse(fs.readFileSync("./test/data.json", "utf8"));
   //read the document template
-  var template = "./test/test.docx";
+  var template = "./test/test_file.docx";
 
   var options = {
     lang: "en-us", // String, output lang of the report
@@ -24,9 +25,12 @@ router.get("/", function (req, res, next) {
       return console.log(err);
     }
     //write the result to a file
-    fs.writeFileSync("./test/output." + options.convertTo, result);
+    var fileName = "output." + options.convertTo;
+    var filePath = path.join(__dirname, "../test/", fileName);
+    fs.writeFileSync(filePath, result);
 
-    res.render("index", { title: "Check ./test/output folder" });
+    //send the file as response
+    res.sendFile(filePath);
   });
 });
 
